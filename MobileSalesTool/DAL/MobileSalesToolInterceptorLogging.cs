@@ -9,7 +9,7 @@ using System.Reflection;
 using System.Linq;
 using MobileSalesTool.Logging;
 
-namespace MobileSalesToolq.DAL
+namespace MobileSalesTool.DAL
 {
     public class MobileSalesToolInterceptorLogging : DbCommandInterceptor
     {

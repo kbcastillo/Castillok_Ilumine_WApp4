@@ -219,6 +219,15 @@
     </Compile>
     <Compile Include="Logging\ILogger.cs" />
     <Compile Include="Logging\Logger.cs" />
+    <Compile Include="Migrations\201803071924266_InitialCreate.cs" />
+    <Compile Include="Migrations\201803071924266_InitialCreate.Designer.cs">
+      <DependentUpon>201803071924266_InitialCreate.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201803071959057_MobileSalesToolM1.cs" />
+    <Compile Include="Migrations\201803071959057_MobileSalesToolM1.Designer.cs">
+      <DependentUpon>201803071959057_MobileSalesToolM1.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\AccountViewModels.cs" />
     <Compile Include="Models\Employee.cs" />
     <Compile Include="Models\Enrollment.cs" />
@@ -308,6 +317,14 @@
   <ItemGroup>
     <None Include="packages.config" />
     <Content Include="Scripts\jquery-1.10.2.min.map" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Migrations\201803071924266_InitialCreate.resx">
+      <DependentUpon>201803071924266_InitialCreate.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201803071959057_MobileSalesToolM1.resx">
+      <DependentUpon>201803071959057_MobileSalesToolM1.cs</DependentUpon>
+    </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>
