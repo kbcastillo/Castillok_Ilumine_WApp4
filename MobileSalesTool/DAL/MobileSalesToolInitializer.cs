@@ -40,18 +40,18 @@ namespace MobileSalesTool.DAL
             context.SaveChanges();
             var enrollments = new List<Enrollment>
             {
-            new Enrollment{StudentID=1,PromotionID=1050,Grade=Grade.A},
-            new Enrollment{StudentID=1,PromotionID=4022,Grade=Grade.C},
-            new Enrollment{StudentID=1,PromotionID=4041,Grade=Grade.B},
-            new Enrollment{StudentID=2,PromotionID=1045,Grade=Grade.B},
-            new Enrollment{StudentID=2,PromotionID=3141,Grade=Grade.F},
-            new Enrollment{StudentID=2,PromotionID=2021,Grade=Grade.F},
-            new Enrollment{StudentID=3,PromotionID=1050},
-            new Enrollment{StudentID=4,PromotionID=1050,},
-            new Enrollment{StudentID=4,PromotionID=4022,Grade=Grade.F},
-            new Enrollment{StudentID=5,PromotionID=4041,Grade=Grade.C},
-            new Enrollment{StudentID=6,PromotionID=1045},
-            new Enrollment{StudentID=7,PromotionID=3141,Grade=Grade.A},
+            new Enrollment{EmployeeID=1,PromotionID=1050,Grade=Grade.A},
+            new Enrollment{EmployeeID=1,PromotionID=4022,Grade=Grade.C},
+            new Enrollment{EmployeeID=1,PromotionID=4041,Grade=Grade.B},
+            new Enrollment{EmployeeID=2,PromotionID=1045,Grade=Grade.B},
+            new Enrollment{EmployeeID=2,PromotionID=3141,Grade=Grade.F},
+            new Enrollment{EmployeeID=2,PromotionID=2021,Grade=Grade.F},
+            new Enrollment{EmployeeID=3,PromotionID=1050},
+            new Enrollment{EmployeeID=4,PromotionID=1050,},
+            new Enrollment{EmployeeID=4,PromotionID=4022,Grade=Grade.F},
+            new Enrollment{EmployeeID=5,PromotionID=4041,Grade=Grade.C},
+            new Enrollment{EmployeeID=6,PromotionID=1045},
+            new Enrollment{EmployeeID=7,PromotionID=3141,Grade=Grade.A},
             };
             enrollments.ForEach(s => context.Enrollments.Add(s));
             context.SaveChanges();
