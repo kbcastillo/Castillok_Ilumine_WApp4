@@ -1,4 +1,4 @@
-﻿using MobileSalesToolq.DAL;
+﻿using MobileSalesTool.DAL;
 using System.Data.Entity;
 using System.Data.Entity.Infrastructure.Interception;
 using System.Data.Entity.SqlServer;

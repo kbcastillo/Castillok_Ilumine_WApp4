@@ -1,4 +1,6 @@
-﻿namespace MobileSalesTool.Models
+﻿using System.ComponentModel.DataAnnotations;
+
+namespace MobileSalesTool.Models
 {
     public enum Grade
     {
@@ -9,7 +11,8 @@
     {
         public int EnrollmentID { get; set; }
         public int PromotionID { get; set; }
-        public int StudentID { get; set; }
+        public int EmployeeID { get; set; }
+        [DisplayFormat(NullDisplayText = "No grade")]
         public Grade? Grade { get; set; }
 
         public virtual Promotion Promotions { get; set; }

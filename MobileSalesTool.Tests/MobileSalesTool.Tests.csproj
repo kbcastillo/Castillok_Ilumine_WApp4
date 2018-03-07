@@ -94,6 +94,7 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="App.config" />
+    <Content Include="Properties\favicon.ico" />
   </ItemGroup>
   <ItemGroup>
     <None Include="packages.config" />
