@@ -1,0 +1,30 @@
+﻿@model IEnumerable<MobileSalesTool.ViewModels.EnrollmentDateGroup>
+
+@{
+    ViewBag.Title = "Employee Body Statistics";
+}
+
+<h2>Employee Body Statistics</h2>
+
+<table>
+    <tr>
+        <th>
+            Enrollment Date
+        </th>
+        <th>
+            Employees
+        </th>
+    </tr>
+
+    @foreach (var item in Model)
+    {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.EnrollmentDate)
+            </td>
+            <td>
+                @item.EmployeeCount
+            </td>
+        </tr>
+    }
+</table>
