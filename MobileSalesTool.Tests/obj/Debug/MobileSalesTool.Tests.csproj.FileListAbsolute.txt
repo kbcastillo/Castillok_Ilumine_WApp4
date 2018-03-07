@@ -59,3 +59,4 @@ C:\Users\kbcastillo\Source\Repos\Castillok_Ilumine_WApp4\MobileSalesTool.Tests\b
 C:\Users\kbcastillo\Source\Repos\Castillok_Ilumine_WApp4\MobileSalesTool.Tests\obj\Debug\MobileSalesTool.Tests.csproj.CoreCompileInputs.cache
 C:\Users\kbcastillo\Source\Repos\Castillok_Ilumine_WApp4\MobileSalesTool.Tests\obj\Debug\MobileSalesTool.Tests.dll
 C:\Users\kbcastillo\Source\Repos\Castillok_Ilumine_WApp4\MobileSalesTool.Tests\obj\Debug\MobileSalesTool.Tests.pdb
+C:\Users\kbcastillo\Source\Repos\Castillok_Ilumine_WApp4\MobileSalesTool.Tests\obj\Debug\MobileSalesTool.Tests.csprojResolveAssemblyReference.cache

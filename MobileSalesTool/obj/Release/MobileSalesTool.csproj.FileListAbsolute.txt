@@ -75,9 +75,12 @@ C:\Users\kbcastillo\Source\Repos\Castillok_Ilumine_WApp4\MobileSalesTool\bin\Mic
 C:\Users\kbcastillo\Source\Repos\Castillok_Ilumine_WApp4\MobileSalesTool\bin\Microsoft.AI.ServerTelemetryChannel.xml
 C:\Users\kbcastillo\Source\Repos\Castillok_Ilumine_WApp4\MobileSalesTool\bin\Microsoft.AI.WindowsServer.xml
 C:\Users\kbcastillo\Source\Repos\Castillok_Ilumine_WApp4\MobileSalesTool\bin\Microsoft.AI.Web.xml
-C:\Users\kbcastillo\Source\Repos\Castillok_Ilumine_WApp4\MobileSalesTool\obj\Release\MobileSalesTool.csprojResolveAssemblyReference.cache
 C:\Users\kbcastillo\Source\Repos\Castillok_Ilumine_WApp4\MobileSalesTool\obj\Release\MobileSalesTool.Migrations.InitialCreate.resources
 C:\Users\kbcastillo\Source\Repos\Castillok_Ilumine_WApp4\MobileSalesTool\obj\Release\MobileSalesTool.csproj.GenerateResource.Cache
 C:\Users\kbcastillo\Source\Repos\Castillok_Ilumine_WApp4\MobileSalesTool\obj\Release\MobileSalesTool.csproj.CoreCompileInputs.cache
 C:\Users\kbcastillo\Source\Repos\Castillok_Ilumine_WApp4\MobileSalesTool\obj\Release\MobileSalesTool.dll
 C:\Users\kbcastillo\Source\Repos\Castillok_Ilumine_WApp4\MobileSalesTool\obj\Release\MobileSalesTool.pdb
+C:\Users\kbcastillo\Source\Repos\Castillok_Ilumine_WApp4\MobileSalesTool\obj\Release\MobileSalesTool.Migrations.MobileSalesToolM1.resources
+C:\Users\kbcastillo\Source\Repos\Castillok_Ilumine_WApp4\MobileSalesTool\obj\Release\MobileSalesTool.Migrations.MaxLengthOnNames.resources
+C:\Users\kbcastillo\Source\Repos\Castillok_Ilumine_WApp4\MobileSalesTool\obj\Release\MobileSalesTool.Migrations.MobileSalesToolM2.resources
+C:\Users\kbcastillo\Source\Repos\Castillok_Ilumine_WApp4\MobileSalesTool\obj\Release\MobileSalesTool.Migrations.ComplexDataModel.resources

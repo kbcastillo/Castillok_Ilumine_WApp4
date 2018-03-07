@@ -81,4 +81,10 @@ C:\Users\kbcastillo\Source\Repos\Castillok_Ilumine_WApp4\MobileSalesTool\obj\Deb
 C:\Users\kbcastillo\Source\Repos\Castillok_Ilumine_WApp4\MobileSalesTool\obj\Debug\MobileSalesTool.Migrations.InitialCreate.resources
 C:\Users\kbcastillo\Source\Repos\Castillok_Ilumine_WApp4\MobileSalesTool\obj\Debug\MobileSalesTool.csproj.GenerateResource.Cache
 C:\Users\kbcastillo\Source\Repos\Castillok_Ilumine_WApp4\MobileSalesTool\obj\Debug\MobileSalesTool.Migrations.MobileSalesToolM1.resources
-C:\Users\kbcastillo\source\repos\Castillok_Ilumine_WApp4\MobileSalesTool\obj\Debug\MobileSalesTool.csprojResolveAssemblyReference.cache
+C:\Users\kbcastillo\Source\Repos\Castillok_Ilumine_WApp4\MobileSalesTool\obj\Debug\MobileSalesTool.Migrations.MaxLengthOnNames.resources
+C:\Users\kbcastillo\Source\Repos\Castillok_Ilumine_WApp4\MobileSalesTool\obj\Debug\MobileSalesTool.Migrations.MobileSalesToolM2.resources
+C:\Users\kbcastillo\Source\Repos\Castillok_Ilumine_WApp4\MobileSalesTool\obj\Debug\MobileSalesTool.Migrations.ComplexDataModel.resources
+C:\Users\kbcastillo\Source\Repos\Castillok_Ilumine_WApp4\MobileSalesTool\bin\Microsoft.AspNet.SignalR.Core.dll
+C:\Users\kbcastillo\Source\Repos\Castillok_Ilumine_WApp4\MobileSalesTool\bin\Microsoft.AspNet.SignalR.SystemWeb.dll
+C:\Users\kbcastillo\Source\Repos\Castillok_Ilumine_WApp4\MobileSalesTool\bin\Microsoft.AspNet.SignalR.Core.xml
+C:\Users\kbcastillo\Source\Repos\Castillok_Ilumine_WApp4\MobileSalesTool\bin\Microsoft.AspNet.SignalR.SystemWeb.xml

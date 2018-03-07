@@ -52,6 +52,12 @@
     <Reference Include="EntityFramework.SqlServer, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
       <HintPath>..\packages\EntityFramework.6.2.0\lib\net45\EntityFramework.SqlServer.dll</HintPath>
     </Reference>
+    <Reference Include="Microsoft.AspNet.SignalR.Core, Version=2.2.2.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.AspNet.SignalR.Core.2.2.2\lib\net45\Microsoft.AspNet.SignalR.Core.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.AspNet.SignalR.SystemWeb, Version=2.2.2.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.AspNet.SignalR.SystemWeb.2.2.2\lib\net45\Microsoft.AspNet.SignalR.SystemWeb.dll</HintPath>
+    </Reference>
     <Reference Include="Microsoft.CodeDom.Providers.DotNetCompilerPlatform, Version=1.0.7.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
       <HintPath>..\packages\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.1.0.7\lib\net45\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.dll</HintPath>
     </Reference>
@@ -206,9 +212,11 @@
     <Compile Include="App_Start\Startup.Auth.cs" />
     <Compile Include="App_Start\WebApiConfig.cs" />
     <Compile Include="Controllers\AccountController.cs" />
+    <Compile Include="Controllers\ConsumerController.cs" />
     <Compile Include="Controllers\EmployeeController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\ManageController.cs" />
+    <Compile Include="Controllers\PromotionController.cs" />
     <Compile Include="DAL\MobileSalesToolConfiguration.cs" />
     <Compile Include="DAL\MobileSalesToolContext.cs" />
     <Compile Include="DAL\MobileSalesToolInitializer.cs" />
@@ -217,6 +225,7 @@
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
+    <Compile Include="Hubs\MSTChat.cs" />
     <Compile Include="Logging\ILogger.cs" />
     <Compile Include="Logging\Logger.cs" />
     <Compile Include="Migrations\201803071924266_InitialCreate.cs" />
@@ -227,8 +236,23 @@
     <Compile Include="Migrations\201803071959057_MobileSalesToolM1.Designer.cs">
       <DependentUpon>201803071959057_MobileSalesToolM1.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\201803072050012_MaxLengthOnNames.cs" />
+    <Compile Include="Migrations\201803072050012_MaxLengthOnNames.Designer.cs">
+      <DependentUpon>201803072050012_MaxLengthOnNames.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201803072134372_MobileSalesToolM2.cs" />
+    <Compile Include="Migrations\201803072134372_MobileSalesToolM2.Designer.cs">
+      <DependentUpon>201803072134372_MobileSalesToolM2.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201803072135073_ComplexDataModel.cs" />
+    <Compile Include="Migrations\201803072135073_ComplexDataModel.Designer.cs">
+      <DependentUpon>201803072135073_ComplexDataModel.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\AccountViewModels.cs" />
+    <Compile Include="Models\Consumer.cs" />
+    <Compile Include="Models\AccountType.cs" />
+    <Compile Include="Models\Department.cs" />
     <Compile Include="Models\Employee.cs" />
     <Compile Include="Models\Enrollment.cs" />
     <Compile Include="Models\IdentityModels.cs" />
@@ -236,6 +260,7 @@
     <Compile Include="Models\Promotion.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Startup.cs" />
+    <Compile Include="ViewModels\ConsumerIndexData.cs" />
     <Compile Include="ViewModels\EnrollmentDateGroup.cs" />
   </ItemGroup>
   <ItemGroup>
@@ -256,6 +281,8 @@
     <Content Include="Scripts\jquery-1.10.2.js" />
     <Content Include="Scripts\jquery-1.10.2.min.js" />
     <None Include="Scripts\jquery.validate-vsdoc.js" />
+    <Content Include="Scripts\jquery.signalR-2.2.2.js" />
+    <Content Include="Scripts\jquery.signalR-2.2.2.min.js" />
     <Content Include="Scripts\jquery.validate.js" />
     <Content Include="Scripts\jquery.validate.min.js" />
     <Content Include="Scripts\jquery.validate.unobtrusive.js" />
@@ -302,6 +329,17 @@
     <Content Include="Views\Employee\Details.cshtml" />
     <Content Include="Views\Employee\Edit.cshtml" />
     <Content Include="Views\Employee\Index.cshtml" />
+    <Content Include="Views\Promotion\Create.cshtml" />
+    <Content Include="Views\Promotion\Delete.cshtml" />
+    <Content Include="Views\Promotion\Details.cshtml" />
+    <Content Include="Views\Promotion\Edit.cshtml" />
+    <Content Include="Views\Promotion\Index.cshtml" />
+    <Content Include="Views\Consumer\Create.cshtml" />
+    <Content Include="Views\Consumer\Delete.cshtml" />
+    <Content Include="Views\Consumer\Details.cshtml" />
+    <Content Include="Views\Consumer\Edit.cshtml" />
+    <Content Include="Views\Consumer\Index.cshtml" />
+    <Content Include="Views\Home\MSTChat.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
@@ -325,6 +363,15 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\201803071959057_MobileSalesToolM1.resx">
       <DependentUpon>201803071959057_MobileSalesToolM1.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201803072050012_MaxLengthOnNames.resx">
+      <DependentUpon>201803072050012_MaxLengthOnNames.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201803072134372_MobileSalesToolM2.resx">
+      <DependentUpon>201803072134372_MobileSalesToolM2.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201803072135073_ComplexDataModel.resx">
+      <DependentUpon>201803072135073_ComplexDataModel.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>
