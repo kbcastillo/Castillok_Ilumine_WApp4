@@ -1,0 +1,52 @@
+﻿@model IEnumerable<MobileSalesTool.Models.Promotion>
+
+@{
+    ViewBag.Title = "Promotions";
+}
+
+<h2>Promotions</h2>
+
+<p>
+    @Html.ActionLink("Create New", "Create")
+</p>
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.PromotionID)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Title)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Credits)
+        </th>
+        <th>
+            Department
+        </th>
+        <th></th>
+    </tr>
+
+    @foreach (var item in Model)
+    {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.PromotionID)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Title)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Credits)
+            </td>
+            @*<td>
+                @Html.DisplayFor(modelItem => item.Department.Name)
+            </td>*@
+            <td>
+                @Html.ActionLink("Edit", "Edit", new { id = item.PromotionID }) |
+                @Html.ActionLink("Details", "Details", new { id = item.PromotionID }) |
+                @Html.ActionLink("Delete", "Delete", new { id = item.PromotionID })
+            </td>
+        </tr>
+    }
+
+</table>

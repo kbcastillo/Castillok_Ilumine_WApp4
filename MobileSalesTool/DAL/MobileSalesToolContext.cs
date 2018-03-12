@@ -6,18 +6,22 @@ namespace MobileSalesTool.DAL
 {
     public class MobileSalesToolContext : DbContext
     {
-
-        public MobileSalesToolContext() : base("MobileSalesToolContext")
-        {
-        }
-
-        public DbSet<Employee> Employees { get; set; }
-        public DbSet<Enrollment> Enrollments { get; set; }
         public DbSet<Promotion> Promotions { get; set; }
+        public DbSet<Department> Departments { get; set; }
+        public DbSet<Enrollment> Enrollments { get; set; }
+        public DbSet<Consumer> Consumers { get; set; }
+        public DbSet<Employee> Employees { get; set; }
+        public DbSet<AccountType> AccountTypes { get; set; }
 
         protected override void OnModelCreating(DbModelBuilder modelBuilder)
         {
             modelBuilder.Conventions.Remove<PluralizingTableNameConvention>();
+
+            modelBuilder.Entity<Promotion>()
+                .HasMany(c => c.Consumers).WithMany(i => i.Promotions)
+                .Map(t => t.MapLeftKey("PromotionID")
+                    .MapRightKey("ConsumerID")
+                    .ToTable("PromotionConsumer"));
         }
     }
 }

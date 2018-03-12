@@ -1,20 +1,21 @@
 namespace MobileSalesTool.Migrations
 {
     using MobileSalesTool.Models;
+    using MobileSalesTool.DAL;
     using System;
     using System.Collections.Generic;
     using System.Data.Entity;
     using System.Data.Entity.Migrations;
     using System.Linq;
 
-    internal sealed class Configuration : DbMigrationsConfiguration<MobileSalesTool.DAL.MobileSalesToolContext>
+    internal sealed class Configuration : DbMigrationsConfiguration<MobileSalesToolContext>
     {
         public Configuration()
         {
             AutomaticMigrationsEnabled = false;
         }
 
-        protected override void Seed(DAL.MobileSalesToolContext context)
+        protected override void Seed(MobileSalesToolContext context)
         {
             var employees = new List<Employee>
             {
@@ -33,22 +34,105 @@ namespace MobileSalesTool.Migrations
                 new Employee { FirstMidName = "Laura",    LastName = "Norman",
                     EnrollmentDate = DateTime.Parse("2013-09-01") },
                 new Employee { FirstMidName = "Nino",     LastName = "Olivetto",
-                    EnrollmentDate = DateTime.Parse("2005-08-11") }
+                    EnrollmentDate = DateTime.Parse("2005-09-01") }
             };
+
             employees.ForEach(s => context.Employees.AddOrUpdate(p => p.LastName, s));
+            context.SaveChanges();
+
+            var consumers = new List<Consumer>
+            {
+                new Consumer { FirstMidName = "Kim",     LastName = "Abercrombie",
+                    HireDate = DateTime.Parse("1995-03-11") },
+                new Consumer { FirstMidName = "Fadi",    LastName = "Fakhouri",
+                    HireDate = DateTime.Parse("2002-07-06") },
+                new Consumer { FirstMidName = "Roger",   LastName = "Harui",
+                    HireDate = DateTime.Parse("1998-07-01") },
+                new Consumer { FirstMidName = "Candace", LastName = "Kapoor",
+                    HireDate = DateTime.Parse("2001-01-15") },
+                new Consumer { FirstMidName = "Roger",   LastName = "Zheng",
+                    HireDate = DateTime.Parse("2004-02-12") }
+            };
+            consumers.ForEach(s => context.Consumers.AddOrUpdate(p => p.LastName, s));
+            context.SaveChanges();
+
+            var departments = new List<Department>
+            {
+                new Department { Name = "English",     Budget = 350000,
+                    StartDate = DateTime.Parse("2007-09-01"),
+                    ConsumerID  = consumers.Single( i => i.LastName == "Abercrombie").ID },
+                new Department { Name = "Mathematics", Budget = 100000,
+                    StartDate = DateTime.Parse("2007-09-01"),
+                    ConsumerID  = consumers.Single( i => i.LastName == "Fakhouri").ID },
+                new Department { Name = "Engineering", Budget = 350000,
+                    StartDate = DateTime.Parse("2007-09-01"),
+                    ConsumerID  = consumers.Single( i => i.LastName == "Harui").ID },
+                new Department { Name = "Economics",   Budget = 100000,
+                    StartDate = DateTime.Parse("2007-09-01"),
+                    ConsumerID  = consumers.Single( i => i.LastName == "Kapoor").ID }
+            };
+            departments.ForEach(s => context.Departments.AddOrUpdate(p => p.Name, s));
             context.SaveChanges();
 
             var promotions = new List<Promotion>
             {
-                new Promotion {PromotionID = 1050, Title = "Chemistry",      Credits = 3, },
-                new Promotion {PromotionID = 4022, Title = "Microeconomics", Credits = 3, },
-                new Promotion {PromotionID = 4041, Title = "Macroeconomics", Credits = 3, },
-                new Promotion {PromotionID = 1045, Title = "Calculus",       Credits = 4, },
-                new Promotion {PromotionID = 3141, Title = "Trigonometry",   Credits = 4, },
-                new Promotion {PromotionID = 2021, Title = "Composition",    Credits = 3, },
-                new Promotion {PromotionID = 2042, Title = "Literature",     Credits = 4, }
+                new Promotion {PromotionID = 1050, Title = "Chemistry",      Credits = 3,
+                  DepartmentID = departments.Single( s => s.Name == "Engineering").DepartmentID,
+                  Consumers = new List<Consumer>()
+                },
+                new Promotion {PromotionID = 4022, Title = "Microeconomics", Credits = 3,
+                  DepartmentID = departments.Single( s => s.Name == "Economics").DepartmentID,
+                  Consumers = new List<Consumer>()
+                },
+                new Promotion {PromotionID = 4041, Title = "Macroeconomics", Credits = 3,
+                  DepartmentID = departments.Single( s => s.Name == "Economics").DepartmentID,
+                  Consumers = new List<Consumer>()
+                },
+                new Promotion {PromotionID = 1045, Title = "Calculus",       Credits = 4,
+                  DepartmentID = departments.Single( s => s.Name == "Mathematics").DepartmentID,
+                  Consumers = new List<Consumer>()
+                },
+                new Promotion {PromotionID = 3141, Title = "Trigonometry",   Credits = 4,
+                  DepartmentID = departments.Single( s => s.Name == "Mathematics").DepartmentID,
+                  Consumers = new List<Consumer>()
+                },
+                new Promotion {PromotionID = 2021, Title = "Composition",    Credits = 3,
+                  DepartmentID = departments.Single( s => s.Name == "English").DepartmentID,
+                  Consumers = new List<Consumer>()
+                },
+                new Promotion {PromotionID = 2042, Title = "Literature",     Credits = 4,
+                  DepartmentID = departments.Single( s => s.Name == "English").DepartmentID,
+                  Consumers = new List<Consumer>()
+                },
             };
-            promotions.ForEach(s => context.Promotions.AddOrUpdate(p => p.Title, s));
+            promotions.ForEach(s => context.Promotions.AddOrUpdate(p => p.PromotionID, s));
+            context.SaveChanges();
+
+            var AccountTypes = new List<AccountType>
+            {
+                new AccountType {
+                    ConsumerID = consumers.Single( i => i.LastName == "Fakhouri").ID,
+                    Location = "Smith 17" },
+                new AccountType {
+                    ConsumerID = consumers.Single( i => i.LastName == "Harui").ID,
+                    Location = "Gowan 27" },
+                new AccountType {
+                    ConsumerID = consumers.Single( i => i.LastName == "Kapoor").ID,
+                    Location = "Thompson 304" },
+            };
+            AccountTypes.ForEach(s => context.AccountTypes.AddOrUpdate(p => p.ConsumerID, s));
+            context.SaveChanges();
+
+            AddOrUpdateConsumer(context, "Chemistry", "Kapoor");
+            AddOrUpdateConsumer(context, "Chemistry", "Harui");
+            AddOrUpdateConsumer(context, "Microeconomics", "Zheng");
+            AddOrUpdateConsumer(context, "Macroeconomics", "Zheng");
+
+            AddOrUpdateConsumer(context, "Calculus", "Fakhouri");
+            AddOrUpdateConsumer(context, "Trigonometry", "Harui");
+            AddOrUpdateConsumer(context, "Composition", "Abercrombie");
+            AddOrUpdateConsumer(context, "Literature", "Abercrombie");
+
             context.SaveChanges();
 
             var enrollments = new List<Enrollment>
@@ -121,6 +205,14 @@ namespace MobileSalesTool.Migrations
                 }
             }
             context.SaveChanges();
+        }
+
+        void AddOrUpdateConsumer(MobileSalesToolContext context, string PromotionTitle, string ConsumerName)
+        {
+            var prm = context.Promotions.SingleOrDefault(c => c.Title == PromotionTitle);
+            var cru = prm.Consumers.SingleOrDefault(i => i.LastName == ConsumerName);
+            if (cru == null)
+                prm.Consumers.Add(context.Consumers.Single(i => i.LastName == ConsumerName));
         }
     }
 }
