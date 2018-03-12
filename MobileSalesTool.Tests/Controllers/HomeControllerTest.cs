@@ -25,6 +25,7 @@ namespace MobileSalesTool.Tests.Controllers
             Assert.IsNotNull(result);
         }
 
+        
         [TestMethod]
         public void About()
         {
@@ -35,7 +36,7 @@ namespace MobileSalesTool.Tests.Controllers
             ViewResult result = controller.About() as ViewResult;
 
             // Assert
-            Assert.AreEqual("Your application description page.", result.ViewBag.Message);
+            Assert.AreEqual("Employees", controller.ViewBag.Title);
         }
 
         [TestMethod]
