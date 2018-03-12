@@ -1,9 +1,10 @@
 ﻿using Owin;
 using Microsoft.Owin;
-[assembly: OwinStartup(typeof(MobileSalesTool.Startup))]
-namespace MobileSalesTool
+[assembly: OwinStartup(typeof(MobileSalesTool.Hubs.Startup))]
+namespace MobileSalesTool.Hubs
+
 {
-    public partial class Startup
+    public class Startup
     {
         public void Configuration(IAppBuilder app)
         {
