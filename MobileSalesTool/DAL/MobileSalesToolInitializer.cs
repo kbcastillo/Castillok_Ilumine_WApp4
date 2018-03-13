@@ -28,13 +28,13 @@ namespace MobileSalesTool.DAL
             context.SaveChanges();
             var promotions = new List<Promotion>
             {
-            new Promotion{PromotionID=1050,Title="Chemistry",Credits=3,},
-            new Promotion{PromotionID=4022,Title="Microeconomics",Credits=3,},
-            new Promotion{PromotionID=4041,Title="Macroeconomics",Credits=3,},
-            new Promotion{PromotionID=1045,Title="Calculus",Credits=4,},
-            new Promotion{PromotionID=3141,Title="Trigonometry",Credits=4,},
-            new Promotion{PromotionID=2021,Title="Composition",Credits=3,},
-            new Promotion{PromotionID=2042,Title="Literature",Credits=4,}
+            new Promotion{PromotionID=1050,Title="BOGO Galaxy S9 or S9+",Credits=3,},
+            new Promotion{PromotionID=4022,Title="$200 off any Galaxy Note 8, S8, S8+",Credits=3,},
+            new Promotion{PromotionID=4041,Title="$200 off any iPhone 8, 8 Plus",Credits=3,},
+            new Promotion{PromotionID=1045,Title="$50 off new line activations",Credits=4,},
+            new Promotion{PromotionID=3141,Title="$50 off LG G Pad 8.0",Credits=4,},
+            new Promotion{PromotionID=2021,Title="$25 off promotional credit for switching",Credits=3,},
+            new Promotion{PromotionID=2042,Title="IlumiCast TV Offer for new customers",Credits=4,}
             };
             promotions.ForEach(s => context.Promotions.Add(s));
             context.SaveChanges();

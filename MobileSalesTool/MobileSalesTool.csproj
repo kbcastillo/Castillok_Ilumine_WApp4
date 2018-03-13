@@ -225,7 +225,7 @@
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
-    <Compile Include="Hubs\MSTChat.cs" />
+    <Compile Include="Hubs\ChatHub.cs" />
     <Compile Include="Hubs\Startup.cs" />
     <Compile Include="Logging\ILogger.cs" />
     <Compile Include="Logging\Logger.cs" />
@@ -340,7 +340,7 @@
     <Content Include="Views\Consumer\Details.cshtml" />
     <Content Include="Views\Consumer\Edit.cshtml" />
     <Content Include="Views\Consumer\Index.cshtml" />
-    <Content Include="Views\Home\MSTChat.cshtml" />
+    <Content Include="Views\Home\Chat.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

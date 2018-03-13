@@ -1,8 +1,7 @@
 ﻿using Owin;
 using Microsoft.Owin;
-[assembly: OwinStartup(typeof(MobileSalesTool.Hubs.Startup))]
-namespace MobileSalesTool.Hubs
-
+[assembly: OwinStartup(typeof(SignalRChat.Startup))]
+namespace SignalRChat
 {
     public class Startup
     {
